@@ -1,13 +1,14 @@
 {
   "expo": {
-    "name": "newApp",
-    "slug": "newApp",
+    "name": "hipobook-market",
+    "scheme": "hipobook-market",
+    "slug": "hipobook-market",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/appLogo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/appLogo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -16,12 +17,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.sc721201.hipobookmarket"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f3c73ec5-8ffa-4b4e-a4c8-342b4d984a14"
+      }
     }
   }
 }
