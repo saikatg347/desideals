@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "hipobook-market",
-    "scheme": "hipobook-market",
-    "slug": "hipobook-market",
+    "name": "desideals",
+    "scheme": "desideals",
+    "slug": "desideals",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/appLogo.png",
@@ -20,14 +20,14 @@
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.sc721201.hipobookmarket"
+      "package": "com.saikatdascp10.desideals"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "f3c73ec5-8ffa-4b4e-a4c8-342b4d984a14"
+        "projectId": "135d7539-2890-4ccc-8e44-13850d19339d"
       }
     }
   }

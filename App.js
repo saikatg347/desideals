@@ -1,51 +1,45 @@
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, StatusBar, SafeAreaView, ScrollView } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import Sbar from './components/Sbar'; // Import the Sbar component
-import Navbar from './components/Navbar'; // Import the Navbar component
-import Category from './components/Category'; // Import the Category component
-import AllCategory from './components/AllCategory'; // Import the AllCategory component
-import Banner from './components/Banner'; // Import the Banner component
-import FlashSaleComponent from './components/FlashSaleComponent'; // Import Flash Sale Component
-import SplashScreen from './components/SplashScreen'; // Import the SplashScreen component
+import React, { useEffect, useState } from "react"
+import {
+  StyleSheet,
+  View,
+  StatusBar,
+  SafeAreaView,
+  ScrollView,
+} from "react-native"
+import { NavigationContainer } from "@react-navigation/native"
+import { createStackNavigator } from "@react-navigation/stack"
+import Sbar from "./components/Sbar" // Import the Sbar component
+import Navbar from "./components/Navbar" // Import the Navbar component
+import Category from "./components/Category" // Import the Category component
+import AllCategory from "./components/AllCategory" // Import the AllCategory component
+import Banner from "./components/Banner" // Import the Banner component
+import FlashSaleComponent from "./components/FlashSaleComponent" // Import Flash Sale Component
+import SplashScreen from "./components/SplashScreen" // Import the SplashScreen component
 // import RecentlyViewedItems from './components/RecentlyViewedItems'; // Import RecentlyViewedItems component
-import LandingPage from './components/LandingPage'; // Import LandingPage component
-import Signup from './components/Signup'; // Import Signup component
-import ProductPage from './components/ProductPage'; 
-import ProductDetails from './components/ProductDetails';  
-import LoginScreen from './components/LoginScreen'; // Import LoginScreen component
-import Cart from './components/Cart';
-import Checkout from './components/Checkout';
-import CheckoutScreen from './components/CheckoutScreen';
-import EReceipt from './components/EReceipt';
-import FilterScreen from './components/FilterScreen'; // Import the FilterScreen component
-import PaymentSuccess from './components/PaymentSuccess'
-import ReviewSummary from './components/ReviewSummary'
-import ProfileScreen from './components/ProfileScreen'
-import MyProfileScreen from './components/MyProfileScreen'
+import LandingPage from "./components/LandingPage" // Import LandingPage component
+import Signup from "./components/Signup" // Import Signup component
+import ProductPage from "./components/ProductPage"
+import ProductDetails from "./components/ProductDetails"
+import LoginScreen from "./components/LoginScreen" // Import LoginScreen component
+import Cart from "./components/Cart"
+import Checkout from "./components/Checkout"
+import CheckoutScreen from "./components/CheckoutScreen"
+import EReceipt from "./components/EReceipt"
+import FilterScreen from "./components/FilterScreen" // Import the FilterScreen component
+import PaymentSuccess from "./components/PaymentSuccess"
+import ReviewSummary from "./components/ReviewSummary"
+import ProfileScreen from "./components/ProfileScreen"
+import MyProfileScreen from "./components/MyProfileScreen"
 
-
-const Stack = createStackNavigator(); // Create the stack navigator
+const Stack = createStackNavigator() // Create the stack navigator
 
 export default function App() {
-  const [isLoading, setIsLoading] = useState(true); // Manage loading state for splash screen
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2500); // Show SplashScreen for 2.5 seconds
-
-    return () => clearTimeout(timer); // Cleanup the timer on unmount
-  }, []);
-
-  if (isLoading) {
-    return <SplashScreen />; // Show the SplashScreen while loading
-  }
-
   return (
     <NavigationContainer>
-      <StatusBar backgroundColor="red" barStyle="light-content" />
+      <StatusBar
+        backgroundColor="red"
+        barStyle="light-content"
+      />
       <Stack.Navigator initialRouteName="LandingPage">
         <Stack.Screen
           name="LandingPage"
@@ -55,30 +49,32 @@ export default function App() {
         <Stack.Screen
           name="Signup"
           component={Signup}
-          options={{  headerShown: false }} // Optional: Customize header title
+          options={{ headerShown: false }} // Optional: Customize header title
         />
-        { <Stack.Screen
-          name="LoginScreen"
-          component={LoginScreen}
-          options={{headerShown: false  }} // Optional: Customize header title
-        /> }
+        {
+          <Stack.Screen
+            name="LoginScreen"
+            component={LoginScreen}
+            options={{ headerShown: false }} // Optional: Customize header title
+          />
+        }
         <Stack.Screen
           name="Home"
           component={HomeScreen}
           options={{ headerShown: false }}
         />
-       
+
         <Stack.Screen
           name="AllCategory"
           component={AllCategory}
-          options={{ title: 'All Categories' }}
+          options={{ title: "All Categories" }}
         />
         <Stack.Screen
           name="Cart"
           component={Cart}
           options={{ headerShown: false }} // This will hide the header
         />
-          <Stack.Screen
+        <Stack.Screen
           name="Checkout"
           component={Checkout}
           options={{ headerShown: false }} // This will hide the header
@@ -88,17 +84,17 @@ export default function App() {
           component={CheckoutScreen}
           options={{ headerShown: false }} // This will hide the header
         />
-         <Stack.Screen
+        <Stack.Screen
           name="EReceipt"
           component={EReceipt}
           options={{ headerShown: false }} // This will hide the header
         />
-         <Stack.Screen
+        <Stack.Screen
           name="PaymentSuccess"
           component={PaymentSuccess}
           options={{ headerShown: false }} // This will hide the header
         />
-         <Stack.Screen
+        <Stack.Screen
           name="ReviewSummary"
           component={ReviewSummary}
           options={{ headerShown: false }} // This will hide the header
@@ -113,12 +109,12 @@ export default function App() {
           component={ProductDetails}
           options={{ headerShown: false }} // This will hide the header
         />
-           <Stack.Screen
+        <Stack.Screen
           name="ProfileScreen"
           component={ProfileScreen}
           options={{ headerShown: false }} // This will hide the header
         />
-         <Stack.Screen
+        <Stack.Screen
           name="MyProfileScreen"
           component={MyProfileScreen}
           options={{ headerShown: false }} // This will hide the header
@@ -128,20 +124,20 @@ export default function App() {
         <Stack.Screen
           name="FilterScreen"
           component={FilterScreen}
-          options={{ headerShown: false  }}
+          options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>
-  );
+  )
 }
 
 const HomeScreen = () => {
-  const [flashSaleBottom, setFlashSaleBottom] = useState(0);
+  const [flashSaleBottom, setFlashSaleBottom] = useState(0)
 
   const handleFlashSaleLayout = (event) => {
-    const { height, y } = event.nativeEvent.layout;
-    setFlashSaleBottom(height + y);
-  };
+    const { height, y } = event.nativeEvent.layout
+    setFlashSaleBottom(height + y)
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -171,20 +167,20 @@ const HomeScreen = () => {
       {/* Fixed Navbar at the bottom */}
       <Navbar />
     </SafeAreaView>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: "white",
   },
   mainContainer: {
     flex: 1,
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
   },
   searchContainer: {
-    backgroundColor: 'red',
+    backgroundColor: "red",
     paddingHorizontal: 8,
   },
   content: {
@@ -192,9 +188,9 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   spacer: {
-    height: 10, 
+    height: 10,
   },
   flash: {
-    paddingTop: 20, 
+    paddingTop: 20,
   },
-});
+})
